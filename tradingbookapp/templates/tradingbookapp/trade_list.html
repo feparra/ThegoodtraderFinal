@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Trades</title>
+    
+</head>
+<body>
+    <h2> Lista de Trades:</h2>
+    <ul>
+        {%for trade in object_list %}
+            <li>
+                Trade: {{trade.fecha}}{{trade.simbolo}}{{trade.get_posicion_display}}{{trade.entrada}}{{trade.target}}{{trade.Stop}}  |
+                <a href = "{% url 'Trades_detail' trade.id %}">Ver</a>
+                <a href = "{% url 'Trades_update' trade.id %}">Editar</a>
+                <a href = "{% url 'Trades_delete' trade.id %}">Eliminar</a>
+
+
+
+            </li>
+        
+        
+        {%endfor%}
+    </ul>
+    <a href="{% url 'Trades_create'%}"> Crear Nuevo Trade</a>
+
+</body>
+</html>

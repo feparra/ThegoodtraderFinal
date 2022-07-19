@@ -1,0 +1,49 @@
+{% extends "tradingbookapp/base.html" %}
+
+{% block titulopagina%}
+The Good Trader - Note
+{%endblock%}
+{%block contenidopagina%}
+
+<section class="bg-light py-5 border-bottom">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+
+                <h3>TradingNotes:</h3>
+                <table class="table">
+
+                    <thead>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Simbolo</th>
+                        <th scope="col">Nota</th>
+
+                    </thead>
+                    <ul class= "list-group list-group-numbered">
+                        {% for note in notes  %}
+                        <tr>
+                            <td>{{note.fecha}}</td>
+                            <td>{{note.simbolo}}</td>
+                            <td>{{note.nota}}</td>
+                            
+                            
+                        </tr>
+                        {% endfor %}
+                    </ul>
+                </table>
+
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                    <a class="btn btn-danger btn-lg px-4 me-sm-3" href="{%url 'crear_notes' %}">Agregar TradingNote</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    
+
+
+
+</section>
+
+{%endblock%}

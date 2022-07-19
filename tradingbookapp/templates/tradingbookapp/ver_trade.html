@@ -1,0 +1,78 @@
+{% extends "tradingbookapp/base.html" %}
+
+{% block titulopagina%}
+The Good Trader - Trade Analysis
+{%endblock%}
+{%block contenidopagina%}
+
+<section class="bg-light py-5 border-bottom">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+
+                <h3>Trade Analysis  |{{trade.id}} {{trade.simbolo}}</h3> 
+                <table class="table">
+
+                    <thead>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Simbolo</th>
+                        <th scope="col">Posicion</th>
+                        <th scope="col">Entrada</th>
+                        <th scope="col">Target</th>
+                        <th scope="col">Stop</th>
+                    </thead>
+                    <ul class= "list-group list-group-numbered">
+                        <tr>
+                            
+                            <td>{{trade.fecha}}</td>
+                            <td>{{trade.simbolo}}</td>
+                            {% if trade.get_posicion_display == "Long"%}
+                                <td><span class= "badge bg-primary rounded-pill>">{{trade.get_posicion_display}}</span></td>
+                            {%else%}
+                                <td><span class= "badge bg-danger rounded-pill>">{{trade.get_posicion_display}}</span></td>
+                            {%endif%}
+                            <td>{{trade.entrada}}</td>
+                            <td>{{trade.target}}</td>
+                            <td>{{trade.stop}}</td>
+                            
+                            
+                            
+                            
+                            
+                        </tr>
+                        
+                    </ul>
+                </table>
+
+                
+
+                
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+</section>
+
+
+<section class="sm-light py-5 border-bottom">
+    <<div class="container px-5">>
+        <div div class="row gx-5 justify-content-center">
+
+            {% if  not trade.tradeimagen %} <!-- si el trade o obj no tiene imagen da una por default -->
+            <img src='/media/avatar/default.png' class="img-fluid" alt="Agregar Imagen del Trade">
+            {%endif%}
+            {% if trade.tradeimagen  %}
+            <img src="{{trade.tradeimagen.url}}" class="img-fluid" alt="Responsive image">
+            {% endif %}
+           
+        </div>   
+    </div>
+</section>
+
+
+
+{%endblock%}

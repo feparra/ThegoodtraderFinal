@@ -1,0 +1,50 @@
+{% extends "tradingbookapp/base.html" %}
+
+{% block titulopagina%}
+The Good Trader - Create Trades
+{%endblock%}
+{%block contenidopagina%}
+<section class="bg-light py-5">
+  <div class="container px-10">
+    <div>
+      <div class="card">
+
+        <h2> Registra un Trade Nuevo:</h2>
+        <br>
+        <div class="row gx-5 justify-content-center">
+          <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %} 
+            {% comment %} el csrf token siempre es necesario colocarlo por que sin eso django genera error {% endcomment %}
+            
+            <!--<p>Fecha: <input type="date" name="fecha" id=""></p>
+            <p>Simbolo:<input type="text" name="simbolo" id=""></p>
+            <p>Posicion: <select  name="posicion" id="posicion">
+                <option value="1">Long</option>
+                <option  value="2">Short</option>
+              </select></p>
+            <p>Entrada: <input type="number" name="entrada" id="" min="0"></p>
+            <p>Target:<input type="number" name="target" id="" min="0"></p>
+            <p>Stop:<input type="number" name="stop" id="" min="0"></p>-->
+
+            
+            {{form.as_p}}
+
+
+
+
+            <br>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+              <input class="btn btn-danger btn-lg px-3 me-sm-2" type="submit" value="Guardar Trade">
+            
+            <div>
+            
+        </form>
+
+        </div>
+      </div>
+
+    </div>
+  <div>  
+</section>
+
+{%endblock%}

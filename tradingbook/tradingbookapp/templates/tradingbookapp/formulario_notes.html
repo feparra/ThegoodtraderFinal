@@ -1,0 +1,29 @@
+{% extends "tradingbookapp/base.html" %}
+
+{% block titulopagina%}
+The Good Trader - Create Notes
+{%endblock%}
+{%block contenidopagina%}
+
+<h2> Registra una TradingNote nueva:</h2>
+<form action="" method="post">
+    {% csrf_token %} 
+    {% comment %} el csrf token siempre es necesario colocarlo por que sin eso django genera error {% endcomment %}
+    
+    <!--<p>Fecha: <input type="date" name="fecha" id=""></p>
+    <p> Simbolo: <input type="text" name="simbolo" id=""></p>
+    <div class="form-floating mb-3">
+        <textarea class="form-control" name = "nota" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+        <label for="nota">TradingNotes</label>
+        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+    </div>-->
+    {{form.as_p}}
+    
+
+
+
+
+    <input type="submit" value="Registrar Nota">
+</form>
+
+{%endblock%}

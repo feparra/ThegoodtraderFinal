@@ -1,0 +1,46 @@
+{% extends "tradingbookapp/base.html" %}
+
+{% block titulopagina%}
+The Good Trader - WatchList
+{%endblock%}
+{%block contenidopagina%}
+
+
+<section class="bg-light py-5 border-bottom">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+
+                <h3>Los Mercados a Observar son:</h3>
+                <table class="table">
+
+                    <thead>
+                        
+                        <th scope="col">Pais</th>
+                        <th scope="col">Simbolo</th>
+                    </thead>
+                    <ul class= "list-group list-group-numbered">
+                        {% for market in markets  %}
+                        <tr>
+                            <td><span class= "badge bg-primary rounded-pill>">{{market.pais}}</td></span>
+                            <td><span class= "badge bg-primary rounded-pill>">{{market.simbolo}}</td></span>
+                            
+                        </tr>
+                        {% endfor %}
+                    </ul>
+                </table>
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                    <a class="btn btn-danger btn-lg px-3 me-sm-3" href="{%url 'crear_mercados' %}">Agregar Watchlist</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    
+
+
+
+</section>
+
+{%endblock%}

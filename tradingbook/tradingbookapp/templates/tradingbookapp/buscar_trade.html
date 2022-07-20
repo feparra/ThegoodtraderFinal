@@ -1,0 +1,39 @@
+{% extends "tradingbookapp/base.html" %}
+
+{% block titulopagina%}
+The Good Trader - Buscar Trades
+{%endblock%}
+{%block contenidopagina%}
+
+<p>Buscar Trades: 
+    <form action="" method="POST"> 
+
+        {% csrf_token %} 
+        {% comment %} el csrf token siempre es necesario colocarlo por que sin eso django genera error {% endcomment %}
+        
+        <!--<p>Fecha: <input type="date" name="fecha" id=""></p>
+        <p>Simbolo:<input type="text" name="simbolo" id=""></p>
+        <p>Posicion: <select  name="posicion" id="posicion">
+            <option value="1">Long</option>
+            <option  value="2">Short</option>
+        </select></p>
+        <p>Entrada: <input type="number" name="entrada" id="" min="0"></p>
+        <p>Target:<input type="number" name="target" id="" min="0"></p>
+        <p>Stop:<input type="number" name="stop" id="" min="0"></p>-->
+        <input type="text" name="simbolo" id="simbolo">
+
+
+
+
+        <input type="submit" value="Buscar">
+    </form>
+</p>
+<p>Resultados:</p>
+<ul>
+    {% for resultado in trades %}
+        <li> {{resultado.fecha}} [{{resultado.simbolo}}] [{{resultado.entrada}}] [{{resultado.get_posicion_display}}] </li>
+    {%endfor%}
+
+</ul>
+
+{%endblock%}
